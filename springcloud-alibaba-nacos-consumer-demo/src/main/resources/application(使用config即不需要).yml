@@ -1,0 +1,27 @@
+
+###使用配置中心后，该文件则不需要
+
+# 应用名称
+spring:
+  application:
+    name: springcloud-alibaba-nacos-consumer-demo
+  # Nacos帮助文档: https://nacos.io/zh-cn/docs/concepts.html
+  # Nacos认证信息
+  cloud:
+    nacos:
+      discovery:
+        username: nacos
+        password: nacos
+        server-addr: 192.168.43.60:8848,192.168.43.61:8848,192.168.43.62:8848
+        # 注册到 nacos 的指定 namespace，默认为 public
+        namespace: public
+server:
+  port: 8081
+dubbo:
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    address: spring-cloud://localhost
+  cloud:
+    subscribed-services: springcloud-alibaba-nacos-producer-demo # 生产者服务名，多个用逗号分隔
