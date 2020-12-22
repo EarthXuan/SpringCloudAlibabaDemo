@@ -35,7 +35,7 @@ public class ProducerTestController {
     //测试service自动刷新配置
     @GetMapping("/service/testConfig")
     public String testServiceConfig() {
-        return defaultConfig;
+        return nacosConfigService.testConfig();
     }
 
 
