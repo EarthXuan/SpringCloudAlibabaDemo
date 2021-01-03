@@ -20,3 +20,14 @@ spring:
         group: DEFAULT_GROUP
         # 缺省值
         prefix: ${spring.application.name}
+        # 配置优先级：shared-configs < extension-configs < dataID
+        # 共享配置集合分别是 dataId, group 以及 refresh，对应类是nacos的Config
+        extension-configs[0]:
+          data-id: common.yml # 配置文件名-DataID
+          group: DEFAULT_GROUP # 默认为DEFAULT_GROUP
+          refresh: true # 是否动态刷新，默认为false
+        # 共享配置集合分别是 dataId, group 以及 refresh，对应类是nacos的Config
+        shared-configs[0]:
+          data-id: common.yml # 配置文件名-DataID
+          group: DEFAULT_GROUP # 默认为DEFAULT_GROUP
+          refresh: true # 是否动态刷新，默认为false
